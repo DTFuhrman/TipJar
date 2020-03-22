@@ -1,6 +1,6 @@
 	  </div> <!-- closes #container -->
 	<footer>
-		<p>Our Tip Jar | Tech Elevator | 2020 &copy;</p>
+		<p>Our Tip Jar | Thread.House | 2020 &copy;</p>
 	</footer>
 </body>
 </html>

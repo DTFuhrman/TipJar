@@ -1,8 +1,10 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+
 public class Worker {
 
-	private int id;
+	private int workerId;
 	private String firstName;
 	private String lastName;
 	private String establishment;
@@ -10,12 +12,13 @@ public class Worker {
 	private String status;
 	private String venmo;
 	private String paypalLink;
+	private LocalDate entered;
 	
-	public int getId() {
-		return id;
+	public int getWorkerId() {
+		return workerId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int workerId) {
+		this.workerId = workerId;
 	}
 	public String getStatus() {
 		return status;

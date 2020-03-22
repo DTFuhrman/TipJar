@@ -31,7 +31,13 @@ public class TipController {
 	@RequestMapping(path = {"/makeProfile"}, method = RequestMethod.POST)
 	public String submitForm(/*@Validated @ModelAttribute("worker")*/ Worker worker) {
 		
-		return "form";
+		return "redirect:/confirmation";
+	}
+	
+	@RequestMapping(path = {"/confirmation"}, method = RequestMethod.GET)
+	public String displayConfirmationPage() {
+		
+		return "confirm";
 	}
 	
 	@RequestMapping(path = {"/donate"}, method = RequestMethod.GET)
