@@ -1,14 +1,16 @@
 package com.techelevator.model;
 
+import java.util.List;
 
 public interface WorkerDAO {
 
-	public void createNewWorker();
-	public void updateStatus();
-	public void removeWorker();
-	public void getWorkersByName();
-	public void getWorkersByEstablishment();
-	public void getWorkersByIndustry();
-	public void getWorkerById();
+	int getNextId();
+	Worker updateStatus(Worker theWorker);
+	Worker removeWorker(Worker theWorker);
+	List<Worker> getWorkersByName(String name);
+	List<Worker> getWorkersByEstablishment(String establishment);
+	List<Worker> getWorkersByIndustry(String industry);
+	Worker getWorkerById(int id);
+	Worker submitNewWorker(Worker newWorker);
 	
 }
