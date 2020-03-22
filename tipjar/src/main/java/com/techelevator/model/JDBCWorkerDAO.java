@@ -47,7 +47,7 @@ public class JDBCWorkerDAO implements WorkerDAO {
 	@Override
 	public Worker removeWorker(Worker theWorker) {
 
-		String sqlDeleteWorker = "DELETE * FROM worker WHERE workerid EQUALS ?";
+		String sqlDeleteWorker = "DELETE * FROM worker WHERE workerid = ?";
 		jdbcTemplate.update(sqlDeleteWorker, theWorker.getWorkerId());
 		return theWorker;
 	}
@@ -55,7 +55,7 @@ public class JDBCWorkerDAO implements WorkerDAO {
 	@Override
 	public Worker updateStatus(Worker theWorker) {
 		
-		String sqlUpdateWorker = " UPDATE <table> SET status = ? WHERE workerid = ?";
+		String sqlUpdateWorker = " UPDATE worker SET status = ? WHERE workerid = ?";
 		jdbcTemplate.update(sqlUpdateWorker, theWorker.getStatus(), theWorker.getWorkerId());
 		
 		return theWorker;
@@ -63,9 +63,9 @@ public class JDBCWorkerDAO implements WorkerDAO {
 
 
 	@Override
-	public List<Worker> getWorkersByName(String name) {
+	public List<Worker> getWorkersByName() {
 		List<Worker> workersByName = new ArrayList<Worker>();
-		String sqlGetWorkersByName = "SELECT * FROM worker ORDER BY lastname ASC, firstname ASC";
+		String sqlGetWorkersByName = "SELECT * FROM worker ORDER BY INITCAP(lastname) ASC, INITCAP(firstname) ASC";
 		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlGetWorkersByName);
 		while(result.next()) {
 			Worker theWorker = mapRowToWorker(result);
@@ -76,9 +76,9 @@ public class JDBCWorkerDAO implements WorkerDAO {
 
 
 	@Override
-	public List<Worker> getWorkersByEstablishment(String establishment) {
+	public List<Worker> getWorkersByEstablishment() {
 		List<Worker> workersByEst = new ArrayList<Worker>();
-		String sqlGetWorkersByEst = "SELECT * FROM worker ORDER BY establishment ASC, lastname ASC, firstname ASC";
+		String sqlGetWorkersByEst = "SELECT * FROM worker ORDER BY INITCAP(establishment) ASC, INITCAP(lastname) ASC, INITCAP(firstname) ASC";
 		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlGetWorkersByEst);
 		while(result.next()) {
 			Worker theWorker = mapRowToWorker(result);
@@ -89,9 +89,9 @@ public class JDBCWorkerDAO implements WorkerDAO {
 
 
 	@Override
-	public List<Worker> getWorkersByIndustry(String industry) {
+	public List<Worker> getWorkersByIndustry() {
 		List<Worker> workersByInd = new ArrayList<Worker>();
-		String sqlGetWorkersByInd = "SELECT * FROM worker ORDER BY Industry, lastname ASC, firstname ASC";
+		String sqlGetWorkersByInd = "SELECT * FROM worker ORDER BY INITCAP(industry) ASC, INITCAP(lastname) ASC, INITCAP(firstname) ASC";
 		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlGetWorkersByInd);
 		while(result.next()) {
 			Worker theWorker = mapRowToWorker(result);
@@ -103,15 +103,13 @@ public class JDBCWorkerDAO implements WorkerDAO {
 
 	@Override
 	public Worker getWorkerById(int id) {
-		List<Worker> workersById = new ArrayList<Worker>();
-		String sqlGetWorkersById = "SELECT * FROM worker ORDER BY Industry, lastname ASC, firstname ASC";
-		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlGetWorkersById);
-		while(result.next()) {
+		Worker workerById = new Worker();
+		String sqlGetWorkerById = "SELECT * FROM worker ORDER BY Industry, lastname ASC, firstname ASC";
+		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlGetWorkerById);
+		
 			Worker theWorker = mapRowToWorker(result);
-			workersById.add(theWorker);
-		}
-		return workersById;
-		return null;
+			
+		return workerById;
 	}
 	
 	private Worker mapRowToWorker(SqlRowSet results) {

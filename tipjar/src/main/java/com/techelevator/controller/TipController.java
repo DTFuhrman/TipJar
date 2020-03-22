@@ -1,9 +1,10 @@
 package com.techelevator.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -41,8 +42,9 @@ public class TipController {
 	}
 	
 	@RequestMapping(path = {"/donate"}, method = RequestMethod.GET)
-	public String displayDonatePage() {
-		
+	public String displayDonatePage(ModelMap map) {
+		List<Worker> workers = workerDao.getWorkersByName();
+		map.addAttribute("workers",  workers);
 		return "donate";
 	}
 	

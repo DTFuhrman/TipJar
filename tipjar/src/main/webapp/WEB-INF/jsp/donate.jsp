@@ -11,7 +11,46 @@
 <h3>Here are the displaced industry workers who have submitted information about how to send them support</h3>
 
 
+<c:forEach var="worker" items="${workers}">
 
+	<div>
+
+<%-- I have no idea How to add images in a project this big, 
+but it would be nice if their was an option to add a portrait
+
+		<a href="profile?workerId=${worker.workerId}"> 
+			<c:set var="imageString" value="${worker.workerId}"/>
+			<img src="img/parks/${fn:toLowerCase(imageString)}.jpg">
+		</a> --%>
+
+
+		<div class="text-block">
+
+			<h2 class="worker-name">
+				<a href="profile?workerId=${worker.workerId}"> 
+					${worker.firstName} ${worker.lastName} 
+				</a>
+			</h2>
+
+
+			<span class="park-description">
+				<ul>
+					<li>${worker.industry}</li>
+					<li>${worker.establishment}</li>
+					<li>${worker.status}</li>
+					<li><a href="https://venmolinkinfo${worker.venmo}"> 
+					${worker.venmo} </a></li>
+					<li><a href="https://paypallinkinfo${worker.paypalLink}"> 
+					${worker.paypalLink} </a></li>
+					<li>${worker.entered}</li>
+				</ul>
+			</span>
+
+		</div>
+
+	</div>
+
+</c:forEach>
 
 
 
