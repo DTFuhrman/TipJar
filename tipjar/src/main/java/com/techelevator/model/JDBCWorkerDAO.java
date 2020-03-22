@@ -1,6 +1,7 @@
 package com.techelevator.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -53,35 +54,63 @@ public class JDBCWorkerDAO implements WorkerDAO {
 
 	@Override
 	public Worker updateStatus(Worker theWorker) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		String sqlUpdateWorker = " UPDATE <table> SET status = ? WHERE workerid = ?";
+		jdbcTemplate.update(sqlUpdateWorker, theWorker.getStatus(), theWorker.getWorkerId());
+		
+		return theWorker;
 	}
 
 
 	@Override
 	public List<Worker> getWorkersByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Worker> workersByName = new ArrayList<Worker>();
+		String sqlGetWorkersByName = "SELECT * FROM worker ORDER BY lastname ASC, firstname ASC";
+		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlGetWorkersByName);
+		while(result.next()) {
+			Worker theWorker = mapRowToWorker(result);
+			workersByName.add(theWorker);
+		}
+		return workersByName;
 	}
 
 
 	@Override
 	public List<Worker> getWorkersByEstablishment(String establishment) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Worker> workersByEst = new ArrayList<Worker>();
+		String sqlGetWorkersByEst = "SELECT * FROM worker ORDER BY establishment ASC, lastname ASC, firstname ASC";
+		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlGetWorkersByEst);
+		while(result.next()) {
+			Worker theWorker = mapRowToWorker(result);
+			workersByEst.add(theWorker);
+		}
+		return workersByEst;
 	}
 
 
 	@Override
 	public List<Worker> getWorkersByIndustry(String industry) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Worker> workersByInd = new ArrayList<Worker>();
+		String sqlGetWorkersByInd = "SELECT * FROM worker ORDER BY Industry, lastname ASC, firstname ASC";
+		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlGetWorkersByInd);
+		while(result.next()) {
+			Worker theWorker = mapRowToWorker(result);
+			workersByInd.add(theWorker);
+		}
+		return workersByInd;
 	}
 
 
 	@Override
 	public Worker getWorkerById(int id) {
-		// TODO Auto-generated method stub
+		List<Worker> workersById = new ArrayList<Worker>();
+		String sqlGetWorkersById = "SELECT * FROM worker ORDER BY Industry, lastname ASC, firstname ASC";
+		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlGetWorkersById);
+		while(result.next()) {
+			Worker theWorker = mapRowToWorker(result);
+			workersById.add(theWorker);
+		}
+		return workersById;
 		return null;
 	}
 	
