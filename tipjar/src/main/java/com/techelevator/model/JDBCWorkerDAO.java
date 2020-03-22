@@ -4,17 +4,19 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+
 
 @Component
 public class JDBCWorkerDAO implements WorkerDAO {
 
 	private JdbcTemplate jdbcTemplate;
 
-	@Autowired
-	public JDBCWorkerDAO(DataSource dataSource) {
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
-	}
+//	@Autowired
+//	public JDBCWorkerDAO(DataSource dataSource) {
+//		this.jdbcTemplate = new JdbcTemplate(dataSource);
+//	}
 	
 	
 	@Override
@@ -57,6 +59,13 @@ public class JDBCWorkerDAO implements WorkerDAO {
 	public void getWorkerById() {
 		// TODO Auto-generated method stub
 
+	}
+	
+	private Worker mapRowToWorker(SqlRowSet results) {
+		return null;
+		// TODO Auto-generated method stub
+		
+		
 	}
 
 }

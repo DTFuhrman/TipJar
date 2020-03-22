@@ -11,10 +11,10 @@ import com.techelevator.model.Worker;
 import com.techelevator.model.WorkerDAO;
 
 @Controller
-public class tipController {
+public class TipController {
 
-	@Autowired
-	private WorkerDAO workerDao;
+//	@Autowired
+//	private WorkerDAO workerDao;
 	
 	@RequestMapping(path = {"/", "/home"}, method = RequestMethod.GET)
 	public String displayHome() {
@@ -29,7 +29,7 @@ public class tipController {
 	}
 	
 	@RequestMapping(path = {"/makeProfile"}, method = RequestMethod.POST)
-	public String submitForm(@Validated @ModelAttribute("worker") Worker worker) {
+	public String submitForm(/*@Validated @ModelAttribute("worker")*/ Worker worker) {
 		
 		return "form";
 	}
