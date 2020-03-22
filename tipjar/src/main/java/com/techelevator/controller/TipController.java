@@ -13,8 +13,8 @@ import com.techelevator.model.WorkerDAO;
 @Controller
 public class TipController {
 
-//	@Autowired
-//	private WorkerDAO workerDao;
+	@Autowired
+	private WorkerDAO workerDao;
 	
 	@RequestMapping(path = {"/", "/home"}, method = RequestMethod.GET)
 	public String displayHome() {

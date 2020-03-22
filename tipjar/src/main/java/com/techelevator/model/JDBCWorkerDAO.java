@@ -13,10 +13,10 @@ public class JDBCWorkerDAO implements WorkerDAO {
 
 	private JdbcTemplate jdbcTemplate;
 
-//	@Autowired
-//	public JDBCWorkerDAO(DataSource dataSource) {
-//		this.jdbcTemplate = new JdbcTemplate(dataSource);
-//	}
+	@Autowired
+	public JDBCWorkerDAO(DataSource dataSource) {
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	}
 	
 	
 	@Override

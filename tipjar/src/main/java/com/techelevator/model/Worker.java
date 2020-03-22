@@ -14,6 +14,12 @@ public class Worker {
 	private String paypalLink;
 	private LocalDate entered;
 	
+	public LocalDate getEntered() {
+		return entered;
+	}
+	public void setEntered(LocalDate entered) {
+		this.entered = entered;
+	}
 	public int getWorkerId() {
 		return workerId;
 	}
