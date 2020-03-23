@@ -1,12 +1,20 @@
 package com.techelevator.controller;
 
+import java.time.LocalDate;
 import java.util.List;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.techelevator.model.Worker;
 import com.techelevator.model.WorkerDAO;
@@ -24,14 +32,28 @@ public class TipController {
 	}
 	
 	@RequestMapping(path = {"/makeProfile"}, method = RequestMethod.GET)
-	public String displayForm() {
-		
+	public String displayForm(Model modelHolder) {
+		if(!modelHolder.containsAttribute("worker")) {
+			modelHolder.addAttribute("worker", new Worker());
+		}
 		return "form";
 	}
 	
 	@RequestMapping(path = {"/makeProfile"}, method = RequestMethod.POST)
-	public String submitForm(/*@Validated @ModelAttribute("worker")*/ Worker worker) {
+	public String submitForm(@Valid @ModelAttribute("worker") Worker worker, BindingResult result, RedirectAttributes flash) {
 		
+		if(result.hasErrors()) {
+			flash.addFlashAttribute("worker", worker);
+			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "worker", result);
+			return "redirect:/makeProfile";
+		}
+		
+		
+		flash.addFlashAttribute("message", "Thank you for signing up. We wish you well.");
+		
+		worker.setId();
+		worker.setEntered(LocalDate.now());
+		workerDao.submitNewWorker(worker);
 		return "redirect:/confirmation";
 	}
 	
@@ -50,6 +72,13 @@ public class TipController {
 		map.addAttribute("establishments",  establishments);
 		map.addAttribute("industries",  industries);
 		return "donate";
+	}
+	
+	@RequestMapping(path = {"/profile"}, method = RequestMethod.GET)
+	public String displayProfile(@RequestParam int profile, ModelMap map) {
+		Worker thisWorker = workerDao.getWorkerById(profile);
+		map.addAttribute("worker",  thisWorker);
+		return "profile";
 	}
 	
 	@RequestMapping(path = {"/info"}, method = RequestMethod.GET)

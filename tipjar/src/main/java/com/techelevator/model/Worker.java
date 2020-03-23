@@ -12,6 +12,8 @@ public class Worker {
 	private String status;
 	private String venmo;
 	private String paypalLink;
+	private String imagePath;	
+	private String personalMessage;	
 	private LocalDate entered;
 	
 	public LocalDate getEntered() {
@@ -65,8 +67,21 @@ public class Worker {
 	public String getPaypalLink() {
 		return paypalLink;
 	}
+	
 	public void setPaypalLink(String paypalLink) {
 		this.paypalLink = paypalLink;
 	}
-	
+
+	public String getImagePath() {
+		return imagePath;
+	}
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+	public String getPersonalMessage() {
+		return personalMessage;
+	}
+	public void setPersonalMessage(String personalMessage) {
+		this.personalMessage = personalMessage;
+	}
 }

@@ -27,10 +27,10 @@ public class JDBCWorkerDAO implements WorkerDAO {
 	@Override
 	public Worker submitNewWorker(Worker newWorker) {
 
-		String sqlCreateWorker = "INSERT INTO worker(workerid, firstname, lastname, establishment, industry, status, venmo, paypallink, entered) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sqlCreateWorker = "INSERT INTO worker(workerid, firstname, lastname, establishment, industry, status, venmo, paypallink, personalmessage, entered) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		newWorker.setWorkerId(getNextId());
 		newWorker.setEntered(LocalDate.now());
-		jdbcTemplate.update(sqlCreateWorker, newWorker.getWorkerId(), newWorker.getFirstName(), newWorker.getLastName(), newWorker.getEstablishment(), newWorker.getIndustry(), newWorker.getStatus(), newWorker.getVenmo(), newWorker.getPaypalLink(), newWorker.getEntered());
+		jdbcTemplate.update(sqlCreateWorker, newWorker.getWorkerId(), newWorker.getFirstName(), newWorker.getLastName(), newWorker.getEstablishment(), newWorker.getIndustry(), newWorker.getStatus(), newWorker.getVenmo(), newWorker.getPaypalLink(), newWorker.getPersonalMessage(), newWorker.getEntered());
 		return newWorker;
 	}
 
@@ -103,11 +103,10 @@ public class JDBCWorkerDAO implements WorkerDAO {
 
 	@Override
 	public Worker getWorkerById(int id) {
-		Worker workerById = new Worker();
-		String sqlGetWorkerById = "SELECT * FROM worker ORDER BY Industry, lastname ASC, firstname ASC";
-		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlGetWorkerById);
-		
-			Worker theWorker = mapRowToWorker(result);
+		String sqlGetWorkerById = "SELECT * FROM worker WHERE workerid = ?";
+		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlGetWorkerById, id);
+		result.next();
+		Worker workerById = mapRowToWorker(result);
 			
 		return workerById;
 	}

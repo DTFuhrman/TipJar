@@ -20,7 +20,7 @@
 	<div class="worker-card">
 
 		<h2 class="worker-name">
-			<a href="profile?workerId=${worker.workerId}">
+			<a href="profile?profile=${worker.workerId}">
 				${worker.firstName} ${worker.lastName} </a>
 		</h2>
 
