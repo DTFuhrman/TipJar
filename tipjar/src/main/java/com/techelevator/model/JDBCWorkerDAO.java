@@ -103,11 +103,10 @@ public class JDBCWorkerDAO implements WorkerDAO {
 
 	@Override
 	public Worker getWorkerById(int id) {
-		Worker workerById = new Worker();
-		String sqlGetWorkerById = "SELECT * FROM worker ORDER BY Industry, lastname ASC, firstname ASC";
-		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlGetWorkerById);
-		
-			Worker theWorker = mapRowToWorker(result);
+		String sqlGetWorkerById = "SELECT * FROM worker WHERE workerid = ?";
+		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlGetWorkerById, id);
+		result.next();
+		Worker workerById = mapRowToWorker(result);
 			
 		return workerById;
 	}
