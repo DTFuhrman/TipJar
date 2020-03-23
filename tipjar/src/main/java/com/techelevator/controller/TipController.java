@@ -3,7 +3,7 @@ package com.techelevator.controller;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.validation.Valid;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,7 +40,7 @@ public class TipController {
 	}
 	
 	@RequestMapping(path = {"/makeProfile"}, method = RequestMethod.POST)
-	public String submitForm(@Valid @ModelAttribute("worker") Worker worker, BindingResult result, RedirectAttributes flash) {
+	public String submitForm(/*@Valid @ModelAttribute("worker")*/ Worker worker, BindingResult result, RedirectAttributes flash) {
 		
 		if(result.hasErrors()) {
 			flash.addFlashAttribute("worker", worker);
@@ -51,7 +51,7 @@ public class TipController {
 		
 		flash.addFlashAttribute("message", "Thank you for signing up. We wish you well.");
 		
-		worker.setId();
+		worker.setWorkerId(workerDao.getNextId());
 		worker.setEntered(LocalDate.now());
 		workerDao.submitNewWorker(worker);
 		return "redirect:/confirmation";
