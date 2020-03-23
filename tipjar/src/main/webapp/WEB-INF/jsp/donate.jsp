@@ -12,55 +12,52 @@
 	information about how to send them support</h3>
 
 
+
+
+
+<div class="workers-container">
 <c:forEach var="worker" items="${workers}">
 
-	<div>
+	<div class="worker-card">
 
 		<%-- I have no idea How to add images in a project this big, 
-but it would be nice if their was an option to add a portrait
+			but it would be nice if their was an option to add a portrait
 
 		<a href="profile?workerId=${worker.workerId}"> 
 			<c:set var="imageString" value="${worker.workerId}"/>
 			<img src="img/parks/${fn:toLowerCase(imageString)}.jpg">
 		</a> --%>
 
-
-		<div class="text-block">
-
-			<h2 class="worker-name">
-				<a href="profile?workerId=${worker.workerId}">
-					${worker.firstName} ${worker.lastName} </a>
-			</h2>
+		<h2 class="worker-name">
+			<a href="profile?workerId=${worker.workerId}">
+				${worker.firstName} ${worker.lastName} </a>
+		</h2>
 
 
-			<span class="park-description">
-				<ul>
-					<li>${worker.industry}</li>
-					<li>${worker.establishment}</li>
-					<li>${worker.status}</li>
-					<c:set var="venmo" value="${worker.venmo}" />
-					<c:if test="${venmo != null}">
-						<li>You can send payments via the Venmo app to: <a
-						href="https://venmo.com/${worker.venmo}"> 
-						${worker.venmo} </a>
-						</li>
-					</c:if>
-					<c:set var="paypal" value="${worker.paypalLink}" />
-					<c:if test="${paypal != null}">
-						<li>You can send payments via the app or the web through PayPal: <a
-						href="https://${worker.paypalLink}"> 
-						${worker.paypalLink} </a>
-						</li>
-					</c:if>
-				</ul>
-			</span>
-
-		</div>
-
+		<span class="worker-description">
+			<ul>
+				<li>${worker.industry}</li>
+				<li>${worker.establishment}</li>
+				<li>${worker.status}</li>
+				<c:set var="venmo" value="${worker.venmo}" />
+				<c:if test="${venmo != null}">
+					<li>You can send payments via the Venmo app to: <a
+						href="https://venmo.com/${worker.venmo}"> ${worker.venmo} </a>
+					</li>
+				</c:if>
+				<c:set var="paypal" value="${worker.paypalLink}" />
+				<c:if test="${paypal != null}">
+					<li>You can send payments via the app or the web through
+						PayPal: <a href="https://${worker.paypalLink}">
+							${worker.paypalLink} </a>
+					</li>
+				</c:if>
+			</ul>
+		</span>
 	</div>
 
 </c:forEach>
-
+</div>
 
 
 
