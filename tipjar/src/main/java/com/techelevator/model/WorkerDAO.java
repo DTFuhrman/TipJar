@@ -12,5 +12,6 @@ public interface WorkerDAO {
 	List<Worker> getWorkersByIndustry();
 	Worker getWorkerById(int id);
 	Worker submitNewWorker(Worker newWorker);
-	
+	List<String> getAllEstablishments();
+	List<String> getAllIndustries();
 }

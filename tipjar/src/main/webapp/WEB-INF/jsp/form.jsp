@@ -10,10 +10,9 @@
 
 <h3>Sorry to hear your work has been affected. Sign up here.</h3>
 
+<div class="submission-form">
 
-
-
-
+</div>
 
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
