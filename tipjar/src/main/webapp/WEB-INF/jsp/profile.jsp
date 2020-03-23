@@ -8,6 +8,8 @@
 
 <h3>${worker.firstName} ${worker.lastName}</h3>
 
+<c:url var="pic" value="/img/barista.jpeg"></c:url>
+<img src="${pic}">
 
 <li class="industry-name">${worker.industry}</li>
 <li class="establishment-name">${worker.establishment}</li>
