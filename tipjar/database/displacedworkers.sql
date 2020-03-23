@@ -9,8 +9,10 @@ CREATE TABLE worker
 	establishment VARCHAR(50) NOT NULL,
 	industry VARCHAR(50) NOT NULL,
 	status VARCHAR(50) NOT NULL,
-	venmo VARCHAR(50) NOT NULL,
-	paypalLink VARCHAR(50) NOT NULL,
+	venmo VARCHAR(50),
+	paypalLink VARCHAR(50),
+	imagePath VARCHAR(50),
+	personalMessage VARCHAR(500),
 	entered DATE NOT NULL
 );
 
