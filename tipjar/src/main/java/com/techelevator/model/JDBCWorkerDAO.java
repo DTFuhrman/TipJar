@@ -127,4 +127,28 @@ public class JDBCWorkerDAO implements WorkerDAO {
 		return theWorker;	
 	}
 
+
+	@Override
+	public List<String> getAllEstablishments() {
+		List<String> establishments = new ArrayList<String>();
+		String sqlGetEstablishments = "SELECT COUNT(*), INITCAP(worker.establishment) AS business FROM worker GROUP BY business ORDER BY business ASC";
+		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlGetEstablishments);
+		while(result.next()) {
+			establishments.add(result.getString("business"));
+		}
+		return establishments;
+	}
+
+
+	@Override
+	public List<String> getAllIndustries() {
+		List<String> industries = new ArrayList<String>();
+		String sqlGetIndustries = "SELECT COUNT(*), INITCAP(worker.industry) AS ind FROM worker GROUP BY ind ORDER BY ind ASC";
+		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlGetIndustries);
+		while(result.next()) {
+			industries.add(result.getString("ind"));
+		}
+		return industries;
+	}
+
 }

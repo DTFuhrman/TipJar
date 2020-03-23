@@ -44,7 +44,11 @@ public class TipController {
 	@RequestMapping(path = {"/donate"}, method = RequestMethod.GET)
 	public String displayDonatePage(ModelMap map) {
 		List<Worker> workers = workerDao.getWorkersByName();
+		List<String> establishments = workerDao.getAllEstablishments();
+		List<String> industries = workerDao.getAllIndustries();
 		map.addAttribute("workers",  workers);
+		map.addAttribute("establishments",  establishments);
+		map.addAttribute("industries",  industries);
 		return "donate";
 	}
 	
