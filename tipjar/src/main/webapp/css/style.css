@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-header {
+ header {
 	position: relative;
 	display: block;
 	max-width: 100%;
@@ -11,13 +11,13 @@ header {
 	color: #000;
 }
 
-nav {
+ nav {
 
 	justify-content: right;
-	padding: 5px 5px 25px 5px;
+	padding: 5px 5px 20px 5px;
 }
 
-.nav {
+/* .nav {
 	
 	list-style: none;
 	margin: 0;
@@ -43,15 +43,15 @@ li a {
   text-decoration: none; 
 }
 
-footer {
+ footer {
 	
   position: fixed;
   left: 0;
   bottom: 0;
+  height: auto;
   width: 100%;
   background-color: grey;
   color: white;
   text-align: center;
 
-}
-
+}  */
