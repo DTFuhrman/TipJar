@@ -6,17 +6,18 @@
 	<c:param name="pageTitle" value="Home" />
 </c:import>
 
-
-
-<h3>Welcome to A Virtual Pittsburgh Tip Jar</h3>
-<div class = "welcome">
+<article class="message is-medium is-dark">
+<div class="message-header has-text-centered">
+<p>Welcome to Our Tip Jar</p>
+</div>
+<div class = "message-body">
 <p>The largest employment sector in Pittburgh is the service industry. 
 As things have shut down because of the COVID19 virus 
 restaurants, bars, cafes, salons, spas, theaters, and 
 many other places of business have been forced to close. 
 These workers were not the best paid in the region, but they 
 served us every day. Because of their pay, a big part of their income was tips.
-Pittsburgh alone stands to lose hundreds of thousands of jobs.
+Pittsburgh alone stands to loose hundreds of thousands of jobs.
 Unemployment, retraining, and temporary assistance for displaced
 workers is likely on the way, but because the sector was so huge, 
 it will be a large burden on the system, and people will be denied benefits
@@ -33,7 +34,7 @@ that none of us can change the entire world, but that each of us can help hold o
 Thank you for visiting and considering joining our cause.
 </p>
 </div>
-
+</article>
 
 
 
