@@ -8,10 +8,15 @@
 
 
 
-<h3>Here is a bunch of information about stuffs</h3>
-
-
-
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Why this exists.</h1>
+      	<h2 class="subtitle">When COVID-19 put a formal end to dine-in eating at restaurants in Allegheny County, it wasn't just your stomach missing out.<br>
+       	Right now, your tip dollars aren't landing in the hands of service workers across the county.</h2>
+    </div>
+  </section>
+  
+  
 
 
 
