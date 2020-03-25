@@ -26,44 +26,41 @@
 		let them know they can sign up here whenever they like.</div>
 </article>
 <div class="container">
-	<div id="workers-container" class="tile is-ancestor" style="flex-flow:wrap;">
+	<div id="workers-container" class="tile is-ancestor"
+		style="flex-flow: wrap;">
 		<c:forEach var="worker" items="${workers}">
-			<div class="worker-card card-content tile is-4">
+			<div class="worker-card card-content tile is-3">
 				<div class="media">
-					<div class="media-left">
-						<div class="field">
-							<!-- <button class="button is-dark" onclick=="activateModal(${worker.workerId})">
-								Show Info</button> -->
-						</div>
-					</div>
-					<div class="media-content">
-						<p class="title">
-							<a href="profile?profile=${worker.workerId}">${worker.firstName}
-								${worker.lastName}</a>
-						</p>
-						<p class="establishment-name subtitle is-6">${worker.establishment}</p>
-						<p class="industry-name subtitle is-6">${worker.industry}</p>
-						<c:set var="venmo" value="${worker.venmo}" />
-						<c:set var="paypal" value="${worker.paypalLink}" />
-						<ul>
-							<li class="subtitle is-6">${worker.status}</li>
-							<li class="subtitle is-6">Venmo: <c:if
-									test="${venmo != null}">
-									<a href="https://venmo.com/${worker.venmo}">
-										${worker.venmo} </a>
-								</c:if>
-							</li>
-							<li class="subtitle is-6">PayPal: <c:if
-									test="${paypal != null}">
-									<a href="https://paypal.me/${worker.paypalLink}">${worker.paypalLink}
-									</a>
-								</c:if>
-							</li>
-						</ul>
-						<div class="content">
-							${worker.personalMessage}
-							<time datetime="2016-1-1">${worker.entered}</time>
-						</div>
+					<div class="box">
+						<p class="title is-3">${worker.firstName} ${worker.lastName}</p>
+						<p class="subtitle is-5 establishment-name">${worker.establishment}</p>
+						<span class="industry-name tag is-medium is-dark">${worker.industry}</span>
+						<span class="current-status tag is-medium is-dark">${worker.status}</span>
+						<time class="date-submitted" style="display:block;">${worker.entered}</time>
+						<footer>
+							<div class="tags are-normal has-addons is-dark"></div>
+							<span class="tag"><a href="profile?profile=${worker.workerId}" class="card-footer-item">Info</a></span>
+							<c:set var="venmo" value="${worker.venmo}" />
+							<c:set var="paypal" value="${worker.paypalLink}" />
+
+							<c:choose>
+								<c:when test="${venmo != null}">
+									<span class="tag"><a href="https://venmo.com/${worker.venmo}" class="card-footer-item">Venmo</a></span>
+								</c:when>
+								<c:otherwise>
+									<span class="tag is-danger card-footer-item">Venmo</span>
+								</c:otherwise>
+							</c:choose>
+
+							<c:choose>
+								<c:when test="${paypal != null}">
+									<span class="tag"><a href="https://paypal.me/${worker.paypalLink}" class="card-footer-item">Paypal</a></span>
+								</c:when>
+								<c:otherwise>
+									<span class="tag card-footer-item is-danger">PayPal</span>
+								</c:otherwise>
+							</c:choose>
+						</footer>
 					</div>
 				</div>
 			</div>
