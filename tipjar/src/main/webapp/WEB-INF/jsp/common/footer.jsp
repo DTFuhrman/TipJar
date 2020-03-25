@@ -3,7 +3,7 @@
 
 </div>
 <!-- closes #container -->
-
+<br />
 
 <footer class="footer">
 	<div class="content has-text-centered has-text-grey-light">
