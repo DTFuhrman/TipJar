@@ -36,7 +36,7 @@ function filterByIndustry() {
         let indElems = card[i].getElementsByClassName("industry-name");
         let ind = indElems[0].innerText.toUpperCase();
     
-        if (input == "All") {
+        if (input.value == "All") {
             card[i].style.display = "";
         } else if (ind == input.value.toUpperCase()) {
             card[i].style.display = "";
