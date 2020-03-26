@@ -27,7 +27,7 @@ jobs:
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v1
       with:
-        app-name: 'tipjar'
+        app-name: 'tipjar2'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_bacf9dd088e8413390e668f20df11356 }}
         package: '${{ github.workspace }}/tipjar/target/*.war'
