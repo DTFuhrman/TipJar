@@ -22,6 +22,7 @@ jobs:
 
     - name: Build with Maven
       run: mvn clean install
+      working-directory: tipjar
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v1
@@ -29,4 +30,4 @@ jobs:
         app-name: 'tipjar2'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_8bd548f0845d45f087b00936b2c93a24 }}
-        package: '${{ github.workspace }}/target/*.jar'
+        package: '${{ github.workspace }}/tipjar/target/*.jar'
