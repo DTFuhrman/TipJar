@@ -24,7 +24,7 @@ jobs:
       run: mvn clean install
       working-directory: tipjar
 
-      - name: Find first WAR file and rename it to ROOT
+    - name: Find first WAR file and rename it to ROOT
       run: mv `find ${{ github.workspace }}/tipjar/target/*.war | head -n 1` ${{ github.workspace }}/tipjar/target/ROOT.war 
 
     - name: Deploy to Azure Web App
