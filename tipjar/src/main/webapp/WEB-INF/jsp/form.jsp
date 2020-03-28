@@ -12,7 +12,7 @@
 <h3>Sorry to hear your work has been affected. Sign up here.</h3>
 
 <div class="field">
-	<form:form action="form" method="post" modelAttribute="worker">
+	<form:form action="makeProfile" method="post" modelAttribute="worker">
 
 		<div class="control">
 			<form:label path="firstName">Your First Name:</form:label>
@@ -70,12 +70,6 @@
 			<form:label path="paypalLink">Your PayPal Link Name: Just the name. You can leave off the 'paypal.me/' part</form:label>
 			<form:input type="text" path="paypalLink" id="paypalLink"/>
 			<form:errors path="paypalLink" style="color:red;"/>
-		</div>
-
-		<div class="control">
-			<form:label path="personalMessage">A personal message about how you are doing: Anything you would like to say to people who are donating.</form:label>
-			<form:input type="text" path="personalMessage" id="personalMessage"/>
-			<form:errors path="personalMessage" style="color:red;"/>
 		</div>
 
 		<div class="control">

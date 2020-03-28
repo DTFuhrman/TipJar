@@ -3,7 +3,7 @@ DROP SEQUENCE IF EXISTS seq_workerId;
 
 CREATE TABLE worker
 (
-	workerId INTEGER PRIMARY KEY,
+	workerId SERIAL PRIMARY KEY,
 	firstName VARCHAR(50) NOT NULL,
 	lastName VARCHAR(50) NOT NULL,
 	establishment VARCHAR(50) NOT NULL,
