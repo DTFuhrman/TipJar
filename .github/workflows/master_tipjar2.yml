@@ -20,6 +20,9 @@ jobs:
       with:
         java-version: '8'
 
+    - name: Swap deployment XML
+      run: mv ${{ github.workspace }}/tipjar/src/main/webapp/WEB-INF/springmvc-servlet-deployed.xml ${{ github.workspace }}/tipjar/src/main/webapp/WEB-INF/springmvc-servlet.xml
+
     - name: Build with Maven
       run: mvn clean install
       working-directory: tipjar
