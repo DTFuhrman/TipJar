@@ -18,6 +18,17 @@
     </div>
   </section>
   
+  	<section class="hero is-primary">
+	  	  <div class="hero-body">
+	   	  <div class="container">	
+  		<h1 class="title">You'll need an app to join the tip jar.</h1>
+  		<h2 class="subtitle">If you're a worker in Pittsburgh's service industry that wants help through our Tip Jar, you'll need either a PayPal or Venmo account.</h2>
+  		<h2><a target="blank" href="https://www.paypal.com/welcome/signup/#/email_password">Click here to sign up for PayPal.</a></h2>
+  		<h2><a target="blank" href="https://venmo.com/signup">Click here to sign up for Venmo.</a></h2>
+  		  </div>
+  		  </div>
+  	</section>
+  
 
 
 
