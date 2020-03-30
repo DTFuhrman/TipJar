@@ -13,7 +13,7 @@
 
 
 
-
+<p>created my free logo at <a href="https://logomakr.com">logomakr.com</a><p>
 
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

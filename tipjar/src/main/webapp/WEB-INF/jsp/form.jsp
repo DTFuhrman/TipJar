@@ -11,28 +11,28 @@
 
 <h3>Sorry to hear your work has been affected. Sign up here.</h3>
 
-<div class="submission-form">
-	<form:form action="form" method="post" modelAttribute="survey">
+<div class="field">
+	<form:form action="makeProfile" method="post" modelAttribute="worker">
 
-		<div class="formInputGroup">
+		<div class="control">
 			<form:label path="firstName">Your First Name:</form:label>
 			<form:input type="text" path="firstName" id="firstName"/>
 			<form:errors path="firstName" style="color:red;"/>
 		</div>
 
-		<div class="formInputGroup">
+		<div class="control">
 			<form:label path="lastName">Your Last Name</form:label>
 			<form:input type="text" path="lastName" id="lastName"/>
 			<form:errors path="lastName" style="color:red;"/>
 		</div>
 
-		<div class="formInputGroup">
+		<div class="control">
 			<form:label path="establishment">Establishment: Where you worked - Try to enter the name as it appears on google maps </form:label>
 			<form:input type="text" path="establishment" id="establishment"/>
 			<form:errors path="establishment" style="color:red;"/>
 		</div>
 
-		<div class="formInputGroup">
+		<div class="control">
 			<form:label path="industry">Industry</form:label>
 			<form:select path="industry" id="industry">
 			<form:option item="Bar" value="Bar">Bar</form:option>
@@ -48,7 +48,7 @@
 			<form:errors path="industry" style="color:red;"/>
 		</div>
 
-		<div class="formInputGroup">
+		<div class="control">
 			<form:label path="status">Status: Let us know a bit about your work situation</form:label>
 			<form:select path="status" id="status">
 			<form:option item="Laid-off" value="Laid-off">Laid-off</form:option>
@@ -60,22 +60,26 @@
 			<form:errors path="status" style="color:red;"/>
 		</div>
 
-		<div class="formInputGroup">
+		<div class="control">
 			<form:label path="venmo">Your Venmo Name: Just enter the name, no @ sign</form:label>
 			<form:input type="text" path="venmo" id="venmo"/>
 			<form:errors path="venmo" style="color:red;"/>
 		</div>
 
-		<div class="formInputGroup">
+		<div class="control">
 			<form:label path="paypalLink">Your PayPal Link Name: Just the name. You can leave off the 'paypal.me/' part</form:label>
 			<form:input type="text" path="paypalLink" id="paypalLink"/>
 			<form:errors path="paypalLink" style="color:red;"/>
 		</div>
 
-		<div class="formInputGroup">
+		<div class="control">
 			<form:label path="personalMessage">A personal message about how you are doing: Anything you would like to say to people who are donating.</form:label>
 			<form:input type="text" path="personalMessage" id="personalMessage"/>
 			<form:errors path="personalMessage" style="color:red;"/>
+		</div>
+		
+		<div class="control">
+		<input type="submit" value="Submit" class= "submitButton">
 		</div>
 
 	</form:form>
